@@ -11,15 +11,20 @@
 int main(void)
 {
 
-	int num;
+	int Onum;
+	int tnum;
 
-	for (num = 0; num <= 9; num++)
+	for (tnum = 0; tnum <= 9; tnum++)
 	{
-		putchar(num + '0');
-		if (num < 9)
+		for (Onum = tnum + 1; Onum <= 9; Onum++)
 		{
-			putchar(',');
-			putchar(' ');
+			putchar(tnum + '0');
+			putchar(Onum + '0');
+			if (tnum < 8)
+			{
+				putchar(',');
+				putchar(' ');
+			}
 		}
 	}
 	putchar('\n');
