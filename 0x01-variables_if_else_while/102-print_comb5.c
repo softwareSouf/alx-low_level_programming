@@ -18,7 +18,7 @@ int main(void)
 	{
 		for (l = 0; l < 100; l++)
 		{
-			if (l < n)
+			if (l > n)
 			{
 				putchar(n / 10 + '0');
 				putchar(n % 10 + '0');
