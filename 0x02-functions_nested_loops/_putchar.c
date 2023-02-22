@@ -1,11 +1,10 @@
 #include "main.h"
 #include <unistd.h>
 /**
-*_putchar -  print the character c
-*description - incremant char with while function
+* _putchar-  print the character c
+* @c: the character to print
 *
-*Return: 0
-*on error 
+* Return: on sucsses 1
 */
 int _putchar(char c)
 {
