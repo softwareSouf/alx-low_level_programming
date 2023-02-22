@@ -16,7 +16,7 @@ void times_table(void)
 			_putchar(',');
 			_putchar(' ');
 
-			spur = Num + mul;
+			spur = Num * mul;
 
 			if (spur <= 9)
 				_putchar(' ');
