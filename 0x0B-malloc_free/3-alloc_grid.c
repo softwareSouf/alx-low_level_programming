@@ -28,7 +28,7 @@ int **alloc_grid(int width, int height)
 	}
 		if (per[x] == NULL)
 		{
-			for (; x >= 0; x--)
+			for (x = 0; x >= 0; x--)
 			{
 				free(per[x]);
 			}
@@ -39,7 +39,9 @@ int **alloc_grid(int width, int height)
 	for (x = 0; x < height; x++)
 	{
 		for (y = 0; y < width; y++)
+		{
 			per[x][y] = 0;
+		}
 	}
 	return (per);
 }
