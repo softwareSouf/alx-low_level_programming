@@ -11,7 +11,7 @@ int count_words(char *str)
 	int flag = 0;
 	int word_count = 0;
 
-	for ( i = 0; str[i] != '\0'; i++)
+	for (int i = 0; str[i] != '\0'; i++)
 	{
 		if (str[i] == ' ')
 		{
