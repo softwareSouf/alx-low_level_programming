@@ -4,11 +4,11 @@
  * delete_dnodeint_at_index - deletes the node at index of a dlistint_t list.
  * @head: pointer to the list.
  * @index: position of the node to delete.
- * Return: 1 if it succeeded, -1 if it failed.
+ * Returns: 1 if it succeeded, -1 if it failed.
  */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	dlistint_t *helper_node = *head;
+	dlistint_t *aux_node = *head;
 	dlistint_t *node_to_delete = *head;
 	unsigned int idx;
 	unsigned int count = 0;
@@ -28,34 +28,49 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	/* Border case for delete at the beginning */
 	if (index == 0)
 	{
-		node_to_delete = *head;
+		/* Set the head to the next node. */
 		*head = node_to_delete->next;
-		if (*head)
-		{
-			(*head)->prev = NULL;
-		}
+
+		/* Free the node to be deleted. */
 		free(node_to_delete);
+
+		/* Return 1 to indicate success. */
 		return (1);
 	}
 
+	/* Search for the node to delete. */
 	idx = index - 1;
-	while (helper_node && count != idx)
+	while (aux_node && count != idx)
 	{
+		/* Increment the count. */
 		count++;
-		helper_node = helper_node->next;
+
+		/* Move to the next node. */
+		aux_node = aux_node->next;
 	}
 
+	/* General case */
 	if (count == idx)
 	{
-		node_to_delete = helper_node->next;
+		/* Get the node to delete. */
+		node_to_delete = aux_node->next;
+
+		/* If the node to delete has a next node, set the next node's previous node to the current node. */
 		if (node_to_delete->next)
 		{
-			node_to_delete->next->prev = helper_node;
+			node_to_delete->next->prev = aux_node;
 		}
-		helper_node->next = node_to_delete->next;
+
+		/* Set the current node's next node to the node to delete's next node. */
+		aux_node->next = node_to_delete->next;
+
+		/* Free the node to be deleted. */
 		free(node_to_delete);
+
+		/* Return 1 to indicate success. */
 		return (1);
 	}
 
+	/* Return -1 to indicate failure. */
 	return (-1);
 }
