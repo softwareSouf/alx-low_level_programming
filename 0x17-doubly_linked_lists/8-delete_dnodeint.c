@@ -38,7 +38,6 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		return (1);
 	}
 
-	/* Search for the node to delete */
 	idx = index - 1;
 	while (helper_node && count != idx)
 	{
@@ -46,7 +45,6 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		helper_node = helper_node->next;
 	}
 
-	/* General case */
 	if (count == idx)
 	{
 		node_to_delete = helper_node->next;
