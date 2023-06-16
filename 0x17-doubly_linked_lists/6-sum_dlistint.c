@@ -12,7 +12,7 @@ int sum_dlistint(dlistint_t *head)
 
 	if (head == NULL)
 	{
-		return 0;
+		return (0);
 	}
 
 	node = head;
@@ -23,5 +23,5 @@ int sum_dlistint(dlistint_t *head)
 		node = node->next;
 	}
 
-	return total;
+	return (total);
 }
